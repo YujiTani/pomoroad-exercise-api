@@ -1,4 +1,13 @@
 import { Hono } from 'hono'
+import { z } from '@hono/zod-openapi'
+
+/**
+ * ユーザーを作成するためのリクエストボディ
+ */
+const reqUserCreateSchema = z.object({
+  name: z.string().min(1),
+  age: z.number(),
+})
 
 const users = [
   {id: 1, name: 'tarou', age: 15},
@@ -6,7 +15,7 @@ const users = [
 ]
 
 const userRoute = new Hono().basePath('/users')
-
+// メソッドをチェインさせて記述することで、型推論が効くようになる
 .post('/', async (c) => {
   const user = await c.req.json()
   users.push({id: users.length + 1, ...user})
