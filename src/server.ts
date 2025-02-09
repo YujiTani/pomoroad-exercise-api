@@ -1,5 +1,5 @@
-import { swaggerUI } from '@hono/swagger-ui'
 import { createRoute, OpenAPIHono, z } from '@hono/zod-openapi'
+import { swaggerUI } from '@hono/swagger-ui'
 // import userRoute from './server/routes/user'
 
 const app = new OpenAPIHono()
@@ -10,17 +10,6 @@ const users = [
   {id: 1, name: 'tarou', age: 15},
   {id: 2, name: 'hanako', age: 20},
 ]
-
-/**
- * ユーザー情報取得用パラメータ
- */
-const reqGetUserParamSchema = z.object({
-  id: z.string().min(1)
-  .openapi({
-    description: 'ユーザーのID',
-    example: '999999',
-  }),
-}).openapi('reqGetUserParamSchema')
 
 /**
  * ユーザー作成時のリクエストボディ
@@ -138,4 +127,3 @@ export default {
   port: 4000,
   fetch: app.fetch,
 }
-
