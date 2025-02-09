@@ -6,6 +6,7 @@ const users = [
 ]
 
 const userRoute = new Hono().basePath('/users')
+
 .post('/', async (c) => {
   const user = await c.req.json()
   users.push({id: users.length + 1, ...user})

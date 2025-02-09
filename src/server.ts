@@ -23,8 +23,7 @@ const routes = app.route('/api', userRoute)
 
 export type AppType = typeof routes
 
-export default
-  {
-    port: 4000,
-    fetch: app.fetch,
-  }
+export default {
+  port: 4000,
+  fetch: app.fetch,
+}
