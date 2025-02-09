@@ -14,7 +14,7 @@ const users = [
 /**
  * ユーザー作成時のリクエストボディ
  */
-const reqCreateUserSchema = z
+export const reqCreateUserSchema = z
 .object({
   name: z.string().min(1)
   .openapi({
@@ -31,7 +31,7 @@ const reqCreateUserSchema = z
 /**
  * エラーを返すスキーマ
  */
-const resErrorSchema = z
+export const resErrorSchema = z
 .object({
   code: z.number().openapi({
     description: 'エラーコード',
@@ -46,7 +46,7 @@ const resErrorSchema = z
 /**
  * ユーザー情報を返すスキーマ
  */
-const resUserSchema = z.object({
+export const resUserSchema = z.object({
   id: z.number()
   .openapi({
     description: 'ユーザーのID',
@@ -123,7 +123,4 @@ app.get("/ui", swaggerUI({ url: "/doc" }));
 
 export type AppType = typeof sampleRoutes
 
-export default {
-  port: 4000,
-  fetch: app.fetch,
-}
+export default app

@@ -1,13 +1,4 @@
 import { Hono } from 'hono'
-import { z } from '@hono/zod-openapi'
-
-/**
- * ユーザーを作成するためのリクエストボディ
- */
-const reqUserCreateSchema = z.object({
-  name: z.string().min(1),
-  age: z.number(),
-})
 
 const users = [
   {id: 1, name: 'tarou', age: 15},
