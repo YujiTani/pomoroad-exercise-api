@@ -10,3 +10,4 @@ bun run dev
 
 open http://localhost:3000
 # articles-zenn-hono
+# pomoroad-exercise-api
